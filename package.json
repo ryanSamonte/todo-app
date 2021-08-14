@@ -9,7 +9,7 @@
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --write --plugin-search-dir=. .",
-    "build:css": "postcss ./tailwind/styles.css -o ./src/css/tailwind-build.css",
+    "build:css": "postcss ./src/css/tailwind/styles.css -o ./src/css/tailwind/tailwind-build.css",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

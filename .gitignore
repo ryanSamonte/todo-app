@@ -2,3 +2,4 @@
 node_modules
 /.svelte-kit
 /package
+/src/css/tailwind/tailwind-build.css

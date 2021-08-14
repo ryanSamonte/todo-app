@@ -1,0 +1,9 @@
+@layer components {
+    body {
+        @apply bg-primary-dark text-white;
+    }
+
+    .page-title {
+        @apply text-center text-4xl font-sans;
+    }
+}
