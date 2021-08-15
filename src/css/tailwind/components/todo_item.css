@@ -1,0 +1,6 @@
+@layer components {
+    .todo-item {
+        min-height: 50px;
+        @apply w-full bg-gradient-to-r from-blue-400 to-blue-600 p-3 rounded-md mt-3;
+    }
+}
