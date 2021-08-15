@@ -4,6 +4,18 @@
     }
 
     .btn.primary {
-        @apply bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-700 hover:to-blue-800;
+        @apply bg-gradient-to-r from-blue-400 to-blue-700 hover:from-blue-700 hover:to-blue-800;
+    }
+
+    .btn.secondary {
+        @apply bg-gradient-to-r from-yellow-400 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800;
+    }
+
+    .btn.success {
+        @apply bg-gradient-to-r from-green-400 to-green-700 hover:from-green-700 hover:to-green-800;
+    }
+
+    .btn.add {
+        @apply bg-gradient-to-r from-yellow-600 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800;
     }
 }

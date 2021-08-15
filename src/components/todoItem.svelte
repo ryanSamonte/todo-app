@@ -1,6 +1,6 @@
 <script lang="ts">
     import Icon from "svelte-awesome";
-    import { star, starO } from "svelte-awesome/icons";
+    import { star, starO, trash } from "svelte-awesome/icons";
 
     type todoItemType = {
         id:string,
@@ -18,10 +18,18 @@
 </script>
 
 <div class="todo-item">
-    <p>{todoItem.content}</p>
+    <div class="grid">
+        <label for=""><input type="checkbox">{todoItem.content}</label>
+    </div>
 
-    <Icon data={star}/>
+    <div class="text-right">
+        <button>
+            <Icon data={starO}/>
+        </button>
     
-    <Icon data={starO}/>
+        <button>
+            <Icon data={trash}/>
+        </button>
+    </div>
 </div>
 
