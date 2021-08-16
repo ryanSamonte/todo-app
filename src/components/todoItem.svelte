@@ -17,14 +17,25 @@
     };
 </script>
 
-<div class="todo-item">
+<div class="todo-item {todoItem.isCompleted ? 'completed' : ''}">
     <div class="grid">
-        <label for=""><input type="checkbox">{todoItem.content}</label>
+        <div class="input-container">
+            <!-- svelte-ignore a11y-label-has-associated-control -->
+            <label class="checkbox-container">
+                <input type="checkbox" checked="{todoItem.isCompleted}">
+                <span class="checkmark"></span>
+                {todoItem.content}
+            </label>
+        </div>
     </div>
 
     <div class="text-right">
         <button>
-            <Icon data={starO}/>
+            {#if todoItem.isPriority}
+                <Icon data={star}/>
+            {:else}
+                <Icon data={starO}/>
+            {/if}
         </button>
     
         <button>

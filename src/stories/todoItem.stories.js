@@ -20,3 +20,23 @@ export const Default = Template.bind({});
         isCompleted: false
     }
 };
+
+export const Completed = Template.bind({});
+    Completed.args = {
+    todoItem: {
+        id: "2",
+        content: "Completed Task",
+        isPriority: false,
+        isCompleted: true
+    }
+};
+
+export const Priority = Template.bind({});
+    Priority.args = {
+    todoItem: {
+        id: "3",
+        content: "Priority Task",
+        isPriority: true,
+        isCompleted: false
+    }
+};

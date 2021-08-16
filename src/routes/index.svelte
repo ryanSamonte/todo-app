@@ -8,20 +8,20 @@
     let todoItems = [
         {
             id: "1",
-            content: "One",
-            isPriority: false,
+            content: "Go to Grocery",
+            isPriority: true,
             isCompleted: false
         },
         {
             id: "2",
-            content: "Two",
+            content: "Pay Electric and Water Bill",
             isPriority: false,
-            isCompleted: false
+            isCompleted: true
         }
     ];
 </script>
 
-<div>
+<div class="mt-5">
     {#each todoItems as todoItem}
         <TodoItem todoItem={todoItem}/>
     {/each}
