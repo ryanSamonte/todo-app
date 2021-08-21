@@ -1,6 +1,6 @@
 @layer components {
     body {
-        @apply bg-primary-dark text-white;
+        @apply bg-primary-dark text-white font-lato;
     }
 
     #svelte {
@@ -8,6 +8,23 @@
     }
 
     .page-title {
-        @apply text-center text-4xl font-sans m-5;
+        @apply text-center text-4xl font-lato m-5;
+    }
+
+    .loading-item {
+        min-height: 50px;
+        @apply animate-pulse w-full bg-loading p-3 rounded-md mb-2;
+    }
+
+    .empty-item {
+        @apply h-80 flex flex-col justify-center text-center;
+    }
+
+    .empty-item svg {
+        @apply m-auto;
+    }
+
+    .empty-item p {
+        @apply font-lato text-lg;
     }
 }

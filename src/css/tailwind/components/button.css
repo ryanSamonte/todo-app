@@ -1,6 +1,6 @@
 @layer components {
     .btn {
-        @apply p-2 rounded-md text-center md:w-36 w-full;
+        @apply p-2 rounded-md text-center w-full font-lato;
     }
 
     .btn.primary {

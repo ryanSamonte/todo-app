@@ -1,8 +1,10 @@
+import MarginDecorator from "../components/marginDecorator.svelte";
 import TodoItem from "../components/todoItem.svelte";
 
 export default {
+    decorators: [() => MarginDecorator],
     component: TodoItem,
-    title: 'TodoItem',
+    title: "TodoItem",
     excludeStories: /.*Data$/
   };
 

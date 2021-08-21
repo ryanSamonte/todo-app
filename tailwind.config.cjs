@@ -5,7 +5,11 @@ module.exports = {
     extend: {
       colors: {
         "primary-dark" : "#15192A",
-        "success": "#09825e"
+        "success" : "#09825e",
+        "loading" : "#0e1121"
+      },
+      fontFamily: {
+        "lato" : ["Lato", "sans-serif"]
       }
     },
   },
