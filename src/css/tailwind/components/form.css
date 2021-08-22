@@ -1,9 +1,13 @@
 @layer components {
-    .form input[type=text] {
-        @apply w-full p-2 text-white font-lato text-lg bg-primary-dark border-0 border-b-2 border-solid border-white;
+    .form input[type=text], input[type=password] {
+        @apply shadow appearance-none border rounded w-full py-2 px-3 text-black;
     }
 
     .form input:focus-visible {
         @apply border-0 border-b-2 border-solid border-white;
+    }
+
+    .form label {
+        @apply block text-white text-sm font-bold mb-2 font-lato;
     }
 }

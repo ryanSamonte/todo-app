@@ -3,7 +3,7 @@
 </svelte:head>
 
 <script lang="ts">
-    import TodoItemList from "../components/todoItemList.svelte";
+    import TodoItemList from "../../components/todoItemList.svelte";
 
     let todoItems = [
         {
