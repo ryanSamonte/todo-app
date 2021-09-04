@@ -1,6 +1,11 @@
 <script lang="ts">
     // Library
     import { createEventDispatcher } from 'svelte';
+    import { session } from "$app/stores";
+    import { goto } from "$app/navigation";
+
+    // Supabase
+    import supabase from "$lib/db";
 
     // Props
     export let isAddTodoModalVisible:boolean;
@@ -8,12 +13,29 @@
     // Fields
     const dispatch = createEventDispatcher();
 
-    let todoContent: string;
+    let taskContent: string;
 
     function closeModal() {
         isAddTodoModalVisible = false;
 
         dispatch("closeAddTodoModal");
+    }
+
+    async function handleSubmit() {
+        let insertData = {
+            user_id: $session.user.id,
+            task: taskContent
+        };
+
+        const response = await supabase.from('todos').insert(insertData)
+
+        closeModal();
+
+        if(response.error) {
+            alert(response.error.message);
+        }
+
+        goto("/todo");
     }
 </script>
 
@@ -29,20 +51,19 @@
         
         <div class="modal-dialog">
             <div class="modal-header">
+                <span class="modal-title">Add New Task</span>
                 <button type="button" class="close" on:click={() => closeModal()}>×</button>
             </div>
 
             <div class="modal-body">
                 <div class="form mt-5">
-                    <input type="text" bind:value={todoContent} placeholder="Add New Task">
+                    <input type="text" bind:value={taskContent} placeholder="Add New Task">
                 </div>
-                
-                {todoContent == undefined ? "" : todoContent}
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn button primary">
-                    Submit
+                <button type="button" class="btn button primary" on:click={handleSubmit}>
+                    Save
                 </button>
             </div>
         </div>

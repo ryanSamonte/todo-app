@@ -3,24 +3,40 @@
 </svelte:head>
 
 <script lang="ts">
+    // Library
+    import { onMount } from "svelte";
+    import { session } from "$app/stores";
+
+    // Supabase
+    import supabase from "$lib/db";
+
+    // Children
     import TodoItemList from "../../components/todoItemList.svelte";
 
-    // let todoItems = [
-    //     {
-    //         id: "2",
-    //         content: "Pay Electric and Water Bill",
-    //         isPriority: false,
-    //         isCompleted: true
-    //     }
-    // ];
+    onMount(() => {
+        fetchTaskList();
+    });
 
+    // Fields
     let todoItems = [];
+    const emptyStateMessage:string = "You have no completed task yet";
 
-    let isLoading:boolean = true;
+    async function fetchTaskList() {
+        isLoading = true;
 
-    isLoading = false;
+        let userId = $session.user.id;
+
+        const response = await supabase.from('todos').select().eq("user_id", userId).eq("is_complete", true);
+
+        if(response) {
+            isLoading = false;
+            todoItems = response.data;
+        }
+    }
+
+    let isLoading:boolean = false;
 </script>
 
 <div class="mt-5">
-    <TodoItemList todoItems={todoItems} isLoading={isLoading} />
+    <TodoItemList todoItems={todoItems} isLoading={isLoading} emptyStateMessage={emptyStateMessage} />
 </div>

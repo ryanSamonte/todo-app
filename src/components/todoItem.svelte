@@ -4,34 +4,34 @@
 
     type todoItemType = {
         id:string,
-        content:string,
-        isPriority:boolean,
-        isCompleted:boolean
+        task:string,
+        is_priority:boolean,
+        is_complete:boolean
     };
 
     export let todoItem:todoItemType = {
         id: "",
-        content: "",
-        isPriority: false,
-        isCompleted: false
+        task: "",
+        is_priority: false,
+        is_complete: false
     };
 </script>
 
-<div class="todo-item {todoItem.isCompleted ? 'completed' : ''}">
+<div class="todo-item {todoItem.is_complete ? 'completed' : ''}">
     <div class="grid">
         <div class="input-container">
             <!-- svelte-ignore a11y-label-has-associated-control -->
             <label class="checkbox-container">
-                <input type="checkbox" checked="{todoItem.isCompleted}">
+                <input type="checkbox" checked="{todoItem.is_complete}">
                 <span class="checkmark"></span>
-                {todoItem.content}
+                {todoItem.task}
             </label>
         </div>
     </div>
 
     <div class="text-right">
         <button>
-            {#if todoItem.isPriority}
+            {#if todoItem.is_priority}
                 <Icon data={star}/>
             {:else}
                 <Icon data={starO}/>

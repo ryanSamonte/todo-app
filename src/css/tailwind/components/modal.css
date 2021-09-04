@@ -20,11 +20,16 @@
     }
 
     .modal-dialog {
+        min-width: 500px;
         @apply inline-block align-bottom bg-seconday-dark rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle;
     }
 
     .modal-header {
         @apply p-4 text-right;
+    }
+
+    .modal-title {
+        @apply float-left mt-2 font-lato text-base;
     }
 
     .modal-header .close {

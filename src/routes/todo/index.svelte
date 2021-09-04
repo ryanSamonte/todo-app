@@ -3,38 +3,39 @@
 </svelte:head>
 
 <script lang="ts">
+    // Library
+    import { onMount } from "svelte";
+    import { session } from "$app/stores";
+
+    // Supabase
+    import supabase from "$lib/db";
+
+    // Children
     import TodoItemList from "../../components/todoItemList.svelte";
 
-    let todoItems = [
-        {
-            id: "1",
-            content: "Go to Grocery",
-            isPriority: false,
-            isCompleted: false
-        },
-        {
-            id: "2",
-            content: "Pay Electric and Water Bill",
-            isPriority: false,
-            isCompleted: true
-        },
-        {
-            id: "3",
-            content: "Exercise",
-            isPriority: true,
-            isCompleted: false
-        },
-        {
-            id: "4",
-            content: "Read Book",
-            isPriority: false,
-            isCompleted: false
-        }
-    ];
+    onMount(() => {
+        fetchTaskList();
+    });
 
-    let isLoading:boolean = false;
+    // Fields
+    let isLoading:boolean = true;
+    let todoItems = [];
+    const emptyStateMessage:string = "You have no onngoing task";
+
+    async function fetchTaskList() {
+        isLoading = true;
+
+        let userId = $session.user.id;
+
+        const response = await supabase.from('todos').select().eq("user_id", userId);
+
+        if(response) {
+            isLoading = false;
+            todoItems = response.data;
+        }
+    }
 </script>
 
 <div class="mt-5">
-    <TodoItemList todoItems={todoItems} isLoading={isLoading} />
+    <TodoItemList todoItems={todoItems} isLoading={isLoading} emptyStateMessage={emptyStateMessage} />
 </div>
