@@ -26,7 +26,11 @@
 
         let userId = $session.user.id;
 
-        const response = await supabase.from('todos').select().eq("user_id", userId).eq("is_priority", true);
+        const response = await supabase.from('todos')
+                                    .select()
+                                    .eq("user_id", userId)
+                                    .eq("is_priority", true)
+                                    .eq("is_complete", false);
 
         if(response) {
             isLoading = false;
