@@ -27,4 +27,8 @@
     .empty-item p {
         @apply font-lato text-lg;
     }
+
+    .link {
+        @apply font-lato text-sm underline
+    }
 }

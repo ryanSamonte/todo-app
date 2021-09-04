@@ -1,6 +1,6 @@
 <script lang="ts">
     import Navigation from "../../components/navigation.svelte";
-    import AddTodo from "../../components/addTodo.svelte";
+    import AddTodo from "../../components/addTodoModal.svelte";
     import supabase from "$lib/db";
     import { onMount } from "svelte";
     import { session } from "$app/stores";
@@ -21,12 +21,21 @@
     }
 </script>
 
-<h1 class="page-title">To-Do App</h1>
+<h1 class="page-title">
+    To-Do App
+
+    <br>
+
+    <span class="link">
+        <!-- svelte-ignore a11y-invalid-attribute -->
+        <a href="#" on:click={signOut}>Sign Out</a>
+    </span>
+</h1>
+
+
 
 <Navigation />
 
-<AddTodo />
-
-<button class="btn primary" on:click={signOut}>Sign Out</button>
+<!-- <AddTodo /> -->
 
 <slot />

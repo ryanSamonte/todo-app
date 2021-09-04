@@ -1,0 +1,42 @@
+@layer components {
+    .modal-container {
+        @apply fixed inset-0 overflow-y-auto;
+    }
+
+    .modal-overlay-container {
+        @apply flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0;
+    }
+
+    .modal-overlay {
+        @apply fixed inset-0 transition-opacity;
+    }
+
+    .modal-overlay .overlay {
+        @apply absolute inset-0 bg-primary-dark opacity-75;
+    }
+
+    .modal-center {
+        @apply hidden sm:inline-block sm:align-middle sm:h-screen;
+    }
+
+    .modal-dialog {
+        @apply inline-block align-bottom bg-seconday-dark rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle;
+    }
+
+    .modal-header {
+        @apply p-4 text-right;
+    }
+
+    .modal-header .close {
+        @apply font-lato text-3xl text-white;
+    }
+    
+    .modal-body {
+        min-height: 200px;
+        @apply p-8;
+    }
+
+    .modal-footer {
+        @apply p-4;
+    }
+}
